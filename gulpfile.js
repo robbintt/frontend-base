@@ -7,6 +7,8 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
 
 // Lint Task
 gulp.task('lint', function() {
@@ -32,11 +34,24 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('dist'));
 });
 
+// Process Images w/ imagemin
+gulp.task('images', function () {
+    return gulp.src('src/images/*')
+        .pipe(imagemin({
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            use: [pngquant()]
+        }))
+        .pipe(gulp.dest('dist/images'));
+});
+
 // Watch Files For Changes
 gulp.task('watch', function() {
     gulp.watch('js/*.js', ['lint', 'scripts']);
     gulp.watch('scss/*.scss', ['sass']);
+    gulp.watch('src/images/*', ['images']);
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'scripts', 'watch']);
+// TAR 082615 - Added images, removed watch from default.
+gulp.task('default', ['lint', 'sass', 'scripts', 'images']);
