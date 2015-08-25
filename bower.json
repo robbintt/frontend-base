@@ -1,0 +1,23 @@
+{
+  "name": "frontend-base",
+  "version": "0.0.1",
+  "authors": [
+    "Trent Robbins <robbintt@gmail.com>"
+  ],
+  "description": "Base bower installation for a generic project.",
+  "keywords": [
+    "base",
+    "gulp",
+    "bower",
+    "node"
+  ],
+  "license": "private",
+  "homepage": "www.tauinformatics.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -9,6 +9,14 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
+var bower = require('gulp-bower');
+
+// Bower task
+gulp.task('bower', function() {
+    //return bower({ cmd: 'update'}); // uncomment to enable 'update mode'
+    return bower() // uncomment to enable 'install mode' (pick one, update or install)
+    .pipe(gulp.dest('lib/'))
+});
 
 // Lint Task
 gulp.task('lint', function() {

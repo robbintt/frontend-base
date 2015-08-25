@@ -18,9 +18,11 @@
     "bower"
   ],
   "author": "Trent Robbins",
-  "license": "",
+  "license": "private",
   "devDependencies": {
+    "bower": "^1.5.2",
     "gulp": "~3.9.0",
+    "gulp-bower": "0.0.10",
     "gulp-concat": "~2.6.0",
     "gulp-imagemin": "^2.3.0",
     "gulp-jshint": "~1.11.2",
