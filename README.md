@@ -1,4 +1,6 @@
 
+## TODO:
+Looks like there isn't any default css minifier. Add one! See sage/roots gulpfile.
 
 ## Status:
 Bower has been installed, gulp has been installed.  Dependencies are now kept in source control.

@@ -11,6 +11,8 @@ var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 var bower = require('gulp-bower');
 
+// NOTES: Currently directories are referenced multiple times. If this file is used more regularly, the directories need to be more DRY. Move them to variables, see sage/roots gulpfile.js for a sample.
+
 // Bower task
 gulp.task('bower', function() {
     //return bower({ cmd: 'update'}); // uncomment to enable 'update mode'
@@ -20,21 +22,21 @@ gulp.task('bower', function() {
 
 // Lint Task
 gulp.task('lint', function() {
-    return gulp.src('js/*.js')
+    return gulp.src('src/js/**/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 
 // Compile Our Sass
 gulp.task('sass', function() {
-    return gulp.src('scss/*.scss')
+    return gulp.src('src/scss/**/*.scss')
         .pipe(sass())
-        .pipe(gulp.dest('css'));
+        .pipe(gulp.dest('dist'));
 });
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
-    return gulp.src('js/*.js')
+    return gulp.src('src/js/**/*.js')
         .pipe(concat('all.js'))
         .pipe(gulp.dest('dist'))
         .pipe(rename('all.min.js'))
@@ -44,7 +46,7 @@ gulp.task('scripts', function() {
 
 // Process Images w/ imagemin
 gulp.task('images', function () {
-    return gulp.src('src/images/*')
+    return gulp.src('src/images/**/*')
         .pipe(imagemin({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
@@ -55,9 +57,9 @@ gulp.task('images', function () {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('js/*.js', ['lint', 'scripts']);
-    gulp.watch('scss/*.scss', ['sass']);
-    gulp.watch('src/images/*', ['images']);
+    gulp.watch('src/js/**/*.js', ['lint', 'scripts']);
+    gulp.watch('src/scss/**/*.scss', ['sass']);
+    gulp.watch('src/images/**/*', ['images']);
 });
 
 // Default Task

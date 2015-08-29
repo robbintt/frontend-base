@@ -1,0 +1,13 @@
+
+// Bower bootstrap TAR 082815
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
+// Bootstrap variables TAR 082815
+@import "common/_variables";
+
+// Use global, optionally break out more pages in common TAR 082815
+@import "common/_global";
+
+// Cart can go here TAR 082815
+@import "layouts/_header";
+@import "layouts/_footer";
