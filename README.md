@@ -20,4 +20,4 @@ In order to unpack this project in a new space:
 
 #### TODO:
 Looks like there isn't any default css minifier. Add one! See sage/roots gulpfile.
-
+Fix vendor to copy directly from src to dist.  This doesn't behave quite right, currently.
