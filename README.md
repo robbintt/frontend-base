@@ -2,6 +2,7 @@
 #### Status:
 In order to unpack this project in a new space:
 
+0. Clone this repository into your project's static folder, probably `/static/`
 1. install npm, gulp, bower.
 2. gulp has dependencies in gulpfile.js, bower has dependencies in bower.json.
 3. Put your assets in the src folder.
